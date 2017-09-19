@@ -20,6 +20,8 @@ public class Game {
     private List<String> platforms;
     private Date releaseDate;
 
+    public Game() {
+    }
 
     //genres nuttig in constructor?
     public Game(String name, String developer, String publisher, Date releaseDate) {

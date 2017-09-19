@@ -16,6 +16,7 @@ public class GameRestController {
 
     @Autowired
     private GameRepository gr;
+
     @RequestMapping(method = RequestMethod.GET , path = "all", produces = "application/json")
     public List<Game> allGames(){
         return gr.findAll();

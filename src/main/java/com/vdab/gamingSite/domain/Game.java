@@ -1,10 +1,11 @@
 package com.vdab.gamingSite.domain;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-//todo implement lists as Classes
 @Entity
 public class Game {
     @Id
@@ -15,10 +16,11 @@ public class Game {
     @ElementCollection
     @Enumerated
     private List<Genres> genres = new ArrayList<>();
-    //todo add Company class with bools for publisher and company
     //todo implement method to get all games from publisher/dev
-    private String developer;
-    private String publisher;
+    @OneToOne
+    private Company developer;
+    @OneToOne
+    private Company publisher;
     @ElementCollection
     @Enumerated
     private List<Platforms> platforms = new ArrayList<>();
@@ -40,7 +42,7 @@ public class Game {
     }
 
     //genres nuttig in constructor?
-    public Game(String name, String developer, String publisher, Date releaseDate) {
+    public Game(String name, Company developer, Company publisher, Date releaseDate) {
         this.name = name;
         this.developer = developer;
         this.publisher = publisher;
@@ -67,19 +69,19 @@ public class Game {
         this.name = name;
     }
 
-    public String getDeveloper() {
+    public Company getDeveloper() {
         return developer;
     }
 
-    public void setDeveloper(String developer) {
+    public void setDeveloper(Company developer) {
         this.developer = developer;
     }
 
-    public String getPublisher() {
+    public Company getPublisher() {
         return publisher;
     }
 
-    public void setPublisher(String publisher) {
+    public void setPublisher(Company publisher) {
         this.publisher = publisher;
     }
 

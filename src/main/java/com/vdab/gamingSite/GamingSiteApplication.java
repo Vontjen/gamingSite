@@ -15,30 +15,23 @@ import java.io.IOException;
 @SpringBootApplication
 public class GamingSiteApplication {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		ApplicationContext ac = SpringApplication.run(GamingSiteApplication.class, args);
+        ApplicationContext ac = SpringApplication.run(GamingSiteApplication.class, args);
 
-		GameRepository gr = ac.getBean(GameRepository.class);
+        GameRepository gr = ac.getBean(GameRepository.class);
+        GameService gs = ac.getBean(GameService.class);
 
-		Game nier = gr.findOne(1000);
-		Game yakuza = gr.findOne(2000);
-		Game wolfenstein = gr.findOne(3000);
+        //todo there has to be a better way
+        gs.addImage(new File("nier.jpg"),1000);
+        gs.addImage(new File("wolfenstein.jpg"),3000);
+        gs.addImage(new File("yakuza.png"),2000);
 
-		//todo there has to be a better way
-		File file = new File("nier.jpg");
-		byte[] picInBytes = new byte[(int) file.length()];
-		FileInputStream fileInputStream = null;
-		try {
-			fileInputStream = new FileInputStream(file);
-			fileInputStream.read(picInBytes);
-			fileInputStream.close();
-			nier.setPicture(picInBytes);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 
-		gr.save(nier);
+    }
 
-	}
+
+
+
 }
+

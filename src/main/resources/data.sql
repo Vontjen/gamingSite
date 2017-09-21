@@ -1,13 +1,29 @@
-insert into game(id, name, developer, publisher)
+insert into company(name, developer, publisher)
+Values ('Platinum Games',TRUE ,FALSE );
+insert into company(name, developer, publisher)
+Values ('Sega',TRUE ,TRUE );
+insert into company(name, developer, publisher)
+Values ('MachineGames',TRUE ,FALSE );
+insert into company(name, developer, publisher)
+Values ('Bethesda Softworks',TRUE ,TRUE );
+insert into company(name, developer, publisher)
+Values ('Square Enix',true,TRUE );
+
+
+
+
+
+
+insert into game(id, name, developer_name, publisher_name)
 VALUES (1000, 'Nier: automata', 'Platinum Games','Square Enix');
-insert into game(id, name, developer, publisher)
+insert into game(id, name, developer_name, publisher_name)
 VALUES (2000, 'Yakuza 0', 'Sega','Sega');
-insert into game(id, name, developer, publisher)
+insert into game(id, name, developer_name, publisher_name)
 VALUES (3000, 'Wolfenstein: the new order', 'MachineGames','Bethesda Softworks');
 
-UPDATE game SET picture = LOAD_FILE( 'C:\\Users\\Vontjen\\Nier.jpg' ) WHERE id =1000;
-UPDATE game SET picture = LOAD_FILE( 'C:\\Users\\Vontjen\\Yakuza.png' ) WHERE id =2000;
-UPDATE game SET picture = LOAD_FILE( 'C:\\Users\\Vontjen\\Wolfenstein.jpg' ) WHERE id =3000;
+UPDATE game SET picture = LOAD_FILE( 'Nier.jpg' ) WHERE id =1000;
+UPDATE game SET picture = LOAD_FILE( 'Yakuza.png' ) WHERE id =2000;
+UPDATE game SET picture = LOAD_FILE( 'Wolfenstein.jpg' ) WHERE id =3000;
 
 
 insert into user(id, user_name, email)

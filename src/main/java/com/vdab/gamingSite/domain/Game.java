@@ -1,10 +1,10 @@
 package com.vdab.gamingSite.domain;
 
-
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
+//todo implement lists as Classes
 @Entity
 public class Game {
     @Id
@@ -12,12 +12,17 @@ public class Game {
     private int id;
     @Column(nullable = false, unique = true)
     private String name;
-    private List<String> genres;
+    @ElementCollection
+    @Enumerated
+    private List<Genres> genres = new ArrayList<>();
     //todo implement dev and Publisher class to record extra info, maybe with interface for Company?
     //todo implement method to get all games from publisher/dev
     private String developer;
     private String publisher;
-    private List<String> platforms;
+    //todo initialise empty Lists
+    @ElementCollection
+    @Enumerated
+    private List<Platforms> platforms = new ArrayList<>();
     private Date releaseDate;
 
     public Game() {
@@ -31,11 +36,11 @@ public class Game {
         this.releaseDate = releaseDate;
     }
 
-    public List<String> getPlatforms() {
+    public List<Platforms> getPlatforms() {
         return platforms;
     }
 
-    public void setPlatforms(List<String> platforms) {
+    public void setPlatforms(List<Platforms> platforms) {
         this.platforms = platforms;
     }
 
@@ -49,14 +54,6 @@ public class Game {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public List<String> getGenres() {
-        return genres;
-    }
-
-    public void setGenres(List<String> genres) {
-        this.genres = genres;
     }
 
     public String getDeveloper() {
@@ -80,6 +77,15 @@ public class Game {
     }
 
     public void setReleaseDate(Date releaseDate) {
+
         this.releaseDate = releaseDate;
+    }
+
+    public List<Genres> getGenres() {
+        return genres;
+    }
+
+    public void setGenres(List<Genres> genres) {
+        this.genres = genres;
     }
 }

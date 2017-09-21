@@ -9,7 +9,7 @@ import java.util.List;
 public class Game {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     @Column(nullable = false, unique = true)
     private String name;
     @ElementCollection
@@ -19,10 +19,21 @@ public class Game {
     //todo implement method to get all games from publisher/dev
     private String developer;
     private String publisher;
-    //todo initialise empty Lists
     @ElementCollection
     @Enumerated
     private List<Platforms> platforms = new ArrayList<>();
+    @Lob
+    @Column(name="PICTURE")
+    private byte[] picture;
+
+    public byte[] getPicture() {
+        return picture;
+    }
+
+    public void setPicture(byte[] picture) {
+        this.picture = picture;
+    }
+
     private Date releaseDate;
 
     public Game() {
@@ -44,7 +55,7 @@ public class Game {
         this.platforms = platforms;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 

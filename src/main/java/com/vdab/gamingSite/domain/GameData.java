@@ -17,7 +17,7 @@
 //    @OneToOne
 //    private Game game;
 //    @ElementCollection
-//    private List<Properties> propertieslist;
+//    private List<Properties> propertiesList;
 //
 //    public GameData(User user, Game game) {
 //        this.user = user;
@@ -40,11 +40,11 @@
 //        this.game = game;
 //    }
 //
-//    public List<Properties> getPropertieslist() {
-//        return propertieslist;
+//    public List<Properties> getPropertiesList() {
+//        return propertiesList;
 //    }
 //
-//    public void setPropertieslist(List<Properties> propertieslist) {
-//        this.propertieslist = propertieslist;
+//    public void setPropertiesList(List<Properties> propertiesList) {
+//        this.propertiesList = propertiesList;
 //    }
 //}

@@ -15,7 +15,7 @@ public class Game {
     @ElementCollection
     @Enumerated
     private List<Genres> genres = new ArrayList<>();
-    //todo implement dev and Publisher class to record extra info, maybe with interface for Company?
+    //todo add Company class with bools for publisher and company
     //todo implement method to get all games from publisher/dev
     private String developer;
     private String publisher;

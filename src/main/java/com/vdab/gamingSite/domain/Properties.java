@@ -1,9 +1,18 @@
-//package com.vdab.gamingSite.domain;
-//
-//
-//
-//public class Properties {
-//    private String propertyName;
-//
-//    private String getPropertyValue;
-//}
+package com.vdab.gamingSite.domain;
+
+
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Properties {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    private String propertyName;
+
+    private String getPropertyValue;
+}

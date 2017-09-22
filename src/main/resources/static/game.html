@@ -40,10 +40,10 @@
         <label for="publisher">publisher</label>
         <input class="form-control" id="publisher" name="publisher"/>
     </div>
-    <div class="form-group">
+    <!--<div class="form-group">
         <label for="picture">picture</label>
         <input class="form-control" id="picture" name="picture"/>
-    </div>
+    </div>-->
     <input type="submit" class="btn btn-primary" value="Create">
 </form>
 </div>
@@ -91,13 +91,16 @@
                 let $row = $('<tr>')
                     .append($('<td>').text(game.id))
                     .append($('<td>').text(game.name))
-                    .append($('<td>').text(game.developer))
-                    .append($('<td>').text(game.publisher))
-                    .append($('<td>').text(game.picture))
+                    .append($('<td>').text(game.developer.name))
+                    .append($('<td>').text(game.publisher.name))
+                    .append($('<td>').append($("<img>").attr("src","data:image/png;base64," + game.picture)))
                     .append($('<td>').append($removeButton));
                 $tbody.append($row);
+
+
+
             }
-        });
+    });
     }
 </script>
 

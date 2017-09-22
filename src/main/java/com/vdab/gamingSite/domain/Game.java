@@ -1,6 +1,5 @@
 package com.vdab.gamingSite.domain;
 
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 import java.util.ArrayList;

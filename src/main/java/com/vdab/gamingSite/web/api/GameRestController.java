@@ -34,18 +34,18 @@ public class GameRestController {
 
     @RequestMapping(method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
     public ResponseEntity<Game> create(@RequestBody Game input) {
-        if(input.getId() == null) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
+//        if(input.getId() != null) {
+//            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//        }
         gr.save(input);
         return new ResponseEntity<>(input, HttpStatus.CREATED);
     }
 
     @RequestMapping(method = RequestMethod.PUT, consumes = "application/json", produces = "application/json")
     public ResponseEntity<Game> update(@RequestBody Game input) {
-        if(input.getId() == null) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
+//        if(input.getId() != null) {
+//            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//        }
         gr.save(input);
         return new ResponseEntity<>(input, HttpStatus.OK);
     }

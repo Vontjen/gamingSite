@@ -13,8 +13,8 @@ public class User {
     private String userName;
     @Email
     private String email;
-//    @OneToMany
-//    private List<GameData> gamedata;
+    @OneToMany
+    private List<GameData> gamedata;
 
 
     public User() {
@@ -43,5 +43,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<GameData> getGamedata() {
+        return gamedata;
+    }
+
+    public void setGamedata(List<GameData> gamedata) {
+        this.gamedata = gamedata;
     }
 }

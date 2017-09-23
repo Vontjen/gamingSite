@@ -14,7 +14,12 @@ public class Properties {
     private int id;
     private String propertyName;
 
-    private String getPropertyValue;
+    private String propertyValue;
+
+    public Properties(String propertyName, String propertyValue) {
+        this.propertyName = propertyName;
+        this.propertyValue = propertyValue;
+    }
 
     public Properties() {
     }
@@ -33,10 +38,10 @@ public class Properties {
     }
 
     public String getGetPropertyValue() {
-        return getPropertyValue;
+        return propertyValue;
     }
 
     public void setGetPropertyValue(String getPropertyValue) {
-        this.getPropertyValue = getPropertyValue;
+        this.propertyValue = getPropertyValue;
     }
 }

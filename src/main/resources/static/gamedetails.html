@@ -12,42 +12,21 @@
 
 <div class="container" id="page">
     <table class="table table-striped">
-        <thead>
-        <tr>
-            <th>Name</th>
+
+        <tr id="name">
+            <th >Name</th>
+        </tr>
+        <tr id="dev">
             <th>Developer</th>
+        </tr>
+        <tr id="pub">
             <th>Publisher</th>
         </tr>
-        </thead>
-        <tbody id="game-list-data">
 
-        </tbody>
+
     </table>
 </div>
 
-    <script>
-        //todo get table vertically aligned for reasons of beauty
-    function getURLParameter(name) {
-        return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
-    }
-
-    param = getURLParameter('gameId');
-    console.log(param);
-
-    $.getJSON('/api/game/'+param, function (game) {
-        let $tbody = $("#game-list-data");
-        let $tpage = $("#page");
-
-        $tpage.append($('<td>').append($("<img>").attr("src","data:image/png;base64," + game.picture)));
-
-
-        let $row = $('<tr>')
-            .append($('<td>').text(game.name))
-            .append($('<td>').text(game.developer.name))
-            .append($('<td>').text(game.publisher.name));
-        $tbody.append($row);
-
-    })
-</script>
+<script src="gamedetails.js"></script>
 </body>
 </html>

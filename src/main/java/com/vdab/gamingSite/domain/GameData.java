@@ -2,6 +2,7 @@ package com.vdab.gamingSite.domain;
 
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 //todo implement Properties class
@@ -16,7 +17,7 @@ public class GameData {
     @ManyToOne
     private Game game;
     @OneToMany
-    private List<Properties> propertiesList;
+    private List<Properties> propertiesList = new ArrayList<>();
 
     public GameData() {
     }
@@ -24,6 +25,8 @@ public class GameData {
     public GameData(User user, Game game) {
         this.user = user;
         this.game = game;
+        propertiesList.add(new Properties("Playtime", "0") );
+
     }
 
     public User getUser() {

@@ -15,4 +15,28 @@ public class Properties {
     private String propertyName;
 
     private String getPropertyValue;
+
+    public Properties() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+
+    public String getPropertyName() {
+        return propertyName;
+    }
+
+    public void setPropertyName(String propertyName) {
+        this.propertyName = propertyName;
+    }
+
+    public String getGetPropertyValue() {
+        return getPropertyValue;
+    }
+
+    public void setGetPropertyValue(String getPropertyValue) {
+        this.getPropertyValue = getPropertyValue;
+    }
 }

@@ -1,0 +1,11 @@
+img{
+    align-content: flex-end;
+    padding:1em;
+    margin:1em;
+}
+
+table{
+    align-content: space-around;
+    padding: 1em;
+    margin: 1em;
+}

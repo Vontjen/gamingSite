@@ -56,8 +56,8 @@
 
         let p = {
             name: $(this.name).val(),
-            developer: $(this.developer).val(),
-            publisher: $(this.publisher).val()
+            developer: $(this.developer.name).val(),
+            publisher: $(this.publisher.name).val()
         };
 
         $.ajax({
@@ -90,7 +90,7 @@
 
                 let $row = $('<tr>')
                     .append($('<td>').text(game.id))
-                    .append($('<td>').text(game.name))
+                    .append($('<td>').append($('<a href="gamedetails.html?gameId='+game.id+'">').text(game.name)))
                     .append($('<td>').text(game.developer.name))
                     .append($('<td>').text(game.publisher.name))
                     .append($('<td>').append($("<img>").attr("src","data:image/png;base64," + game.picture)))

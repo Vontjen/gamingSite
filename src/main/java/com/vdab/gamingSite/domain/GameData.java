@@ -18,6 +18,9 @@ public class GameData {
     @OneToMany
     private List<Properties> propertiesList;
 
+    public GameData() {
+    }
+
     public GameData(User user, Game game) {
         this.user = user;
         this.game = game;

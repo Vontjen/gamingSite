@@ -3,9 +3,10 @@ package com.vdab.gamingSite.services;
 import com.vdab.gamingSite.domain.User;
 import com.vdab.gamingSite.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.Date;
-
+@Component
 public class UserService {
     @Autowired
     private UserRepository ur;

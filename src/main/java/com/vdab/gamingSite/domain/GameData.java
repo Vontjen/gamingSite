@@ -5,12 +5,11 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-//todo implement Properties class
 @Entity
 public class GameData {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
+    Integer id;
 
     @ManyToOne
     private User user;
@@ -27,6 +26,10 @@ public class GameData {
         this.game = game;
         propertiesList.add(new Properties("Playtime", "0") );
 
+    }
+
+    public Integer getId() {
+        return id;
     }
 
     public User getUser() {

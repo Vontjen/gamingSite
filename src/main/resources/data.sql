@@ -1,3 +1,6 @@
+
+
+
 insert into company(id,name, developer, publisher)
 Values (1000,'Platinum Games',TRUE ,FALSE );
 insert into company(id,name, developer, publisher)
@@ -62,4 +65,69 @@ insert into game_platforms
 VALUES (3000, 1);
 insert into game_platforms
 VALUES (3000, 2);
+
+insert into game_data
+VALUES (1000,1000,1000);
+insert into game_data
+VALUES (2000,1000,2000);
+insert into game_data
+VALUES (3000,2000,2000);
+insert into game_data
+VALUES (4000,2000,3000);
+insert into game_data
+VALUES (5000,2000,2000);
+insert into game_data
+VALUES (6000,2000,1000);
+insert into game_data
+VALUES (7000,2000,3000);
+insert into game_data
+VALUES (8000,3000,1000);
+insert into game_data
+VALUES (9000,3000,2000);
+insert into game_data
+VALUES (10000,3000,3000);
+
+insert into properties
+VALUES (1000, 'Completed main', 'yes');
+insert into properties
+VALUES (2000, 'completed endings', '26');
+insert into properties
+VALUES (3000, 'weapons collected', '18');
+insert into properties
+VALUES (4000, 'Completed', 'yes');
+insert into properties
+VALUES (5000, 'substories found', '65');
+insert into properties
+VALUES (6000, 'baccus training complete', 'no');
+insert into properties
+VALUES (7000, 'Completed', 'no');
+insert into properties
+VALUES (8000, 'nazi\'s shot', '923');
+insert into properties
+VALUES (9000, 'killed the doctor', 'no');
+
+insert into game_data_properties_list
+values(1000,1000);
+insert into game_data_properties_list
+values(1000,2000);
+insert into game_data_properties_list
+values(3000,3000);
+insert into game_data_properties_list
+values(4000,4000);
+insert into game_data_properties_list
+values(5000,5000);
+insert into game_data_properties_list
+values(6000,6000);
+insert into game_data_properties_list
+values(7000,7000);
+insert into game_data_properties_list
+values(8000,8000);
+insert into game_data_properties_list
+values(9000,9000);
+
+
+
+
+
+
 

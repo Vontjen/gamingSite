@@ -1,7 +1,7 @@
 package com.vdab.gamingSite.web.api;
 
-import com.vdab.gamingSite.domain.Game;
-import com.vdab.gamingSite.repo.GameRepository;
+import com.vdab.gamingSite.domain.GameData;
+import com.vdab.gamingSite.repo.GameDataRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,43 +10,41 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/game")
-public class GameRestController {
-
-
+@RequestMapping("api/gamedata")
+public class GameDataRestController {
     @Autowired
-    private GameRepository gr;
+    private GameDataRepository gdr;
 
     @RequestMapping(method = RequestMethod.GET , path = "all", produces = "application/json")
-    public List<Game> getAll(){
-        return gr.findAll();
+    public List<GameData> getAll(){
+        return gdr.findAll();
     }
 
     @RequestMapping(method = RequestMethod.GET, path="{id}", produces = "application/json")
-    public Game getById(@PathVariable("id") int id) {
-        return gr.findOne(id);
+    public GameData getById(@PathVariable("id") int id) {
+        return gdr.findOne(id);
     }
 
     @RequestMapping(method = RequestMethod.DELETE, path="{id}")
     public void deleteById(@PathVariable("id") int id) {
-        gr.delete(id);
+        gdr.delete(id);
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
-    public ResponseEntity<Game> create(@RequestBody Game input) {
+    public ResponseEntity<GameData> create(@RequestBody GameData input) {
         if(input.getId() != null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-        gr.save(input);
+        gdr.save(input);
         return new ResponseEntity<>(input, HttpStatus.CREATED);
     }
 
     @RequestMapping(method = RequestMethod.PUT, consumes = "application/json", produces = "application/json")
-    public ResponseEntity<Game> update(@RequestBody Game input) {
+    public ResponseEntity<GameData> update(@RequestBody GameData input) {
         if(input.getId() != null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-        gr.save(input);
+        gdr.save(input);
         return new ResponseEntity<>(input, HttpStatus.OK);
     }
 

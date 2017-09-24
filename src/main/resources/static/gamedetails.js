@@ -22,6 +22,8 @@ $.getJSON('/api/game/'+param, function (game) {
     $tname.append($('<td>').text(game.name));
     $tdev.append($('<td>').text(game.developer.name));
     $tpub.append($('<td>').text(game.publisher.name));
+    //todo This is the way to get the platforms out, configure to get all of them in a seperate comma seperated column
+    //$tpub.append().text(game.platforms[0]);
 
 
 

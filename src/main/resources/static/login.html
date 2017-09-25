@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+          integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous"/>
+    <meta charset="UTF-8"/>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<div class="container">
+
+    <form id="login">
+        <div class="form-group">
+            <label for="userid">User Id</label>
+            <input class="form-control" id="userid" name="userid"/>
+        </div>
+        <input type="submit" class="btn btn-primary" value="login">
+
+    </form>
+
+</div>
+
+<script>
+    $('#login').submit(function (e) {
+        e.preventDefault();
+
+        let id = $(this.userid).val();
+
+
+        window.location = "index.html?userId="+id;
+
+    })
+</script>
+
+</body>
+</html>

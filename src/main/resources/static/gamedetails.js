@@ -6,10 +6,13 @@ function getURLParameter(name) {
     return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
 }
 
-param = getURLParameter('gameId');
-console.log(param);
+gameid = getURLParameter('gameId');
+userid = getURLParameter('userId');
 
-$.getJSON('/api/game/'+param, function (game) {
+console.log(gameid);
+console.log(userid);
+
+$.getJSON('/api/game/'+gameid, function (game) {
     let $tname = $("#name");
     let $tdev = $("#dev");
     let $tpub = $("#pub");
@@ -28,11 +31,34 @@ $.getJSON('/api/game/'+param, function (game) {
     $tdesc.append($('<td>').text(game.description));
     $tplatforms.append($('<td>').text(game.platforms));
     $tgenres.append($('<td>').text(game.genres));
-    // for (genre of game.genres){
-    //     $tgenres.append().text(genre+", ")
-    // }
+
 
 
 
 });
+
+if(userid !== null){
+$.getJSON('/api/gamedata/all', function (gamedata) {
+    let $tdata = $('#userGameData');
+
+    for(data of gamedata){
+
+        console.log(data.user.id);
+        if(data.user.id == userid && data.game.id== gameid){
+
+            console.log(data.propertiesList);
+
+            for(properties of data.propertiesList){
+                $tdata.append($('<th>').text(properties.propertyName))
+                .append($('<td>').text(properties.propertyValue));}
+
+
+        }
+
+    }
+
+})}
+
+
+
 

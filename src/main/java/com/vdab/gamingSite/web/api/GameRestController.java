@@ -3,6 +3,7 @@ package com.vdab.gamingSite.web.api;
 import com.vdab.gamingSite.domain.Game;
 import com.vdab.gamingSite.repo.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -25,6 +26,11 @@ public class GameRestController {
     @RequestMapping(method = RequestMethod.GET, path="{id}", produces = "application/json")
     public Game getById(@PathVariable("id") int id) {
         return gr.findOne(id);
+    }
+
+    @RequestMapping(method = RequestMethod.GET, path = "company/{id}", produces = "application/json")
+    public List<Game> getByCompany(@PathVariable("id") int id){
+        return gr.getByCompany(id);
     }
 
     @RequestMapping(method = RequestMethod.DELETE, path="{id}")

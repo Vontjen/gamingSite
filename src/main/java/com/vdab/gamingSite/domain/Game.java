@@ -15,7 +15,6 @@ public class Game {
     @ElementCollection
     @Enumerated
     private List<Genres> genres = new ArrayList<>();
-    //todo implement method to get all games from publisher/dev
     @OneToOne
     private Company developer;
     @OneToOne
@@ -26,6 +25,17 @@ public class Game {
     @Lob
     @Column(name="PICTURE")
     private byte[] picture;
+    @Lob
+    @Column(length = 1024)
+    private String description;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public byte[] getPicture() {
         return picture;
@@ -40,7 +50,6 @@ public class Game {
     public Game() {
     }
 
-    //genres nuttig in constructor?
     public Game(String name, Company developer, Company publisher, Date releaseDate) {
         this.name = name;
         this.developer = developer;

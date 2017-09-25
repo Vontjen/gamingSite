@@ -1,4 +1,6 @@
 img{
+    max-width: 460px;
+    max-height:215px;
     align-content: flex-end;
     padding:1em;
     margin:1em;

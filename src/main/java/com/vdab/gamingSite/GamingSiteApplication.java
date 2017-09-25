@@ -21,6 +21,7 @@ public class GamingSiteApplication {
         gs.addImage(new File("nier.jpg"),1000);
         gs.addImage(new File("wolfenstein.jpg"),3000);
         gs.addImage(new File("yakuza.png"),2000);
+        gs.addImage(new File("mqdefault.jpg"), 4000);
 
 
     }

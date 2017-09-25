@@ -14,16 +14,23 @@ $.getJSON('/api/game/'+param, function (game) {
     let $tdev = $("#dev");
     let $tpub = $("#pub");
     let $tpage = $("#page");
+    let $tdesc = $("#desc");
+    let $tplatforms = $("#platforms");
+    let $tgenres = $("#genres");
 
     $tpage.append($('<td>').append($("<img>").attr("src","data:image/png;base64," + game.picture)));
 
 
-
+    //todo vragen hoe ik een urlparameter persist over een userSession
     $tname.append($('<td>').text(game.name));
     $tdev.append($('<td>').text(game.developer.name));
     $tpub.append($('<td>').text(game.publisher.name));
-    //todo This is the way to get the platforms out, configure to get all of them in a seperate comma seperated column
-    //$tpub.append().text(game.platforms[0]);
+    $tdesc.append($('<td>').text(game.description));
+    $tplatforms.append($('<td>').text(game.platforms));
+    $tgenres.append($('<td>').text(game.genres));
+    // for (genre of game.genres){
+    //     $tgenres.append().text(genre+", ")
+    // }
 
 
 

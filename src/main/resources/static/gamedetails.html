@@ -11,6 +11,24 @@
 <body >
 
 <div class="container" id="page">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active" id="gameList">
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="login.html">login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
     <table class="table table-striped">
 
         <tr id="name">
@@ -32,12 +50,85 @@
             <th>Genres</th>
         </tr>
     </table>
-
+    <h2>User Data</h2>
     <table class="table" id="userGameData">
 
     </table>
 </div>
 
-<script src="gamedetails.js"></script>
+<script>
+
+
+
+
+    function getURLParameter(name) {
+        return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
+    }
+
+    let uid = getURLParameter('userId');
+    let $gameList = $('#gameList');
+
+    $gameList.append('<a class="nav-link" href="game.html?userId=' + uid + '">Gamelist <span class="sr-only">(current)</span></a>');
+
+    gameid = getURLParameter('gameId');
+    userid = getURLParameter('userId');
+
+    console.log(gameid);
+    console.log(userid);
+
+    $.getJSON('/api/game/'+gameid, function (game) {
+        let $tname = $("#name");
+        let $tdev = $("#dev");
+        let $tpub = $("#pub");
+        let $tpage = $("#page");
+        let $tdesc = $("#desc");
+        let $tplatforms = $("#platforms");
+        let $tgenres = $("#genres");
+
+        $tpage.append($('<td>').append($("<img>").attr("src","data:image/png;base64," + game.picture)));
+
+
+        $tname.append($('<td>').text(game.name));
+        $tdev.append($('<td>').text(game.developer.name));
+        $tpub.append($('<td>').text(game.publisher.name));
+        $tdesc.append($('<td>').text(game.description));
+        $tplatforms.append($('<td>').text(game.platforms));
+        $tgenres.append($('<td>').text(game.genres));
+
+
+
+
+    });
+
+    if(userid !== null){
+        $.getJSON('/api/gamedata/all', function (gamedata) {
+            let $tdata = $('#userGameData');
+
+            for(data of gamedata){
+
+                console.log(data.user.id);
+                if(data.user.id == userid && data.game.id== gameid){
+
+                    console.log(data.propertiesList);
+
+                    for(properties of data.propertiesList){
+                        $tdata.append($('<th>'))
+                            .append($('<th>').text(properties.propertyName))
+                            .append($('<td>').text(properties.getPropertyValue));}
+
+
+                }
+
+            }
+
+        })}
+
+
+
+
+
+
+
+</script>
 </body>
 </html>

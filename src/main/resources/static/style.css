@@ -1,13 +1,48 @@
 img{
     max-width: 460px;
     max-height:215px;
-    align-content: flex-end;
+
     padding:1em;
-    margin:1em;
+    margin:2em;
 }
 
 table{
-    align-content: space-around;
+
     padding: 1em;
-    margin: 1em;
+    margin: 2em;
+}
+
+.container{
+    box-shadow: black;
+    background-color:white;
+
+}
+
+body{
+    background-color: beige;
+}
+
+
+div.gallery {
+    margin: 2px;
+    border: 1px solid black;
+    float: left;
+    height: 300px;
+    width: 30%;
+}
+
+div.gallery:hover {
+    border: 1px solid #777;
+}
+
+div.gallery img {
+    max-width: 90%;
+    height: auto;
+    align-items:center;
+
+}
+
+div.desc {
+    padding: 15px;
+    text-align: center;
 }

@@ -4,9 +4,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <meta charset="UTF-8">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
     <link rel="stylesheet" href="style.css"/>
-    <title>Title</title>
+    <title>GameList</title>
 </head>
 <body>
 
@@ -46,33 +45,9 @@
         </tbody>
     </table>
 
-<form id="game-create-form">
-    <div class="form-group">
-        <label for="name">name:</label>
-        <input class="form-control" id="name" name="name"/>
-    </div>
-    <div class="form-group">
-        <label for="developer">developer</label>
-        <select name="cars" id="developer">
-            <option value="1000">Platinum Games</option>
-            <option value="2000">Sega</option>
-            <option value="3000">MachineGames</option>
-            <option value="4000">Bethesda Software</option>
-            <option value="5000">Square Enix</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="publisher">publisher</label>
-        <select name="cars" id="publisher">
-            <option value="1000">Platinum Games</option>
-            <option value="2000">Sega</option>
-            <option value="3000">MachineGames</option>
-            <option value="4000">Bethesda Software</option>
-            <option value="5000">Square Enix</option>
-        </select>
-    </div>
-    <input type="submit" class="btn btn-primary" value="Create">
-</form>
+<div id="admin">
+
+</div>
 </div>
 
 <script>
@@ -83,8 +58,39 @@
     let uid = getURLParameter('userId');
 
     let $gameList = $('#gameList');
+    let $admin = $('#admin');
 
     $gameList.append('<a class="nav-link" href="game.html?userId=' + uid + '">Gamelist <span class="sr-only">(current)</span></a>');
+
+    if (uid === 'admin'){
+        $admin.append('<form id="game-create-form">\n' +
+            '    <div class="form-group">\n' +
+            '        <label for="name">name:</label>\n' +
+            '        <input class="form-control" id="name" name="name"/>\n' +
+            '    </div>\n' +
+            '    <div class="form-group">\n' +
+            '        <label for="developer">developer</label>\n' +
+            '        <select name="publisher" id="developer">\n' +
+            '            <option value="1000">Platinum Games</option>\n' +
+            '            <option value="2000">Sega</option>\n' +
+            '            <option value="3000">MachineGames</option>\n' +
+            '            <option value="4000">Bethesda Software</option>\n' +
+            '            <option value="5000">Square Enix</option>\n' +
+            '        </select>\n' +
+            '    </div>\n' +
+            '    <div class="form-group">\n' +
+            '        <label for="publisher">publisher</label>\n' +
+            '        <select name="publisher" id="publisher">\n' +
+            '            <option value="1000">Platinum Games</option>\n' +
+            '            <option value="2000">Sega</option>\n' +
+            '            <option value="3000">MachineGames</option>\n' +
+            '            <option value="4000">Bethesda Software</option>\n' +
+            '            <option value="5000">Square Enix</option>\n' +
+            '        </select>\n' +
+            '    </div>\n' +
+            '    <input type="submit" class="btn btn-primary" value="Create">\n' +
+            '</form>')
+    }
 
 
     $('#game-create-form').submit(function(e) {
@@ -134,7 +140,8 @@
                     .append($('<td>').text(game.developer.name))
                     .append($('<td>').text(game.publisher.name))
                     .append($('<td>').append($("<img>").attr("src","data:image/png;base64," + game.picture)))
-                    .append($('<td>').append($removeButton));
+                    if(uid === 'admin'){
+                    $row.append($('<td>').append($removeButton));}
                 $tbody.append($row);
 
 
@@ -142,6 +149,8 @@
             }
     });
     }
+
+
 
 
 </script>

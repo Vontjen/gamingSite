@@ -4,6 +4,7 @@ img{
 
     padding:1em;
     margin:2em;
+    align-self: center;
 }
 
 table{
@@ -38,7 +39,7 @@ div.gallery:hover {
 div.gallery img {
     max-width: 90%;
     height: auto;
-    align-items:center;
+    align-self:center;
 
 }
 

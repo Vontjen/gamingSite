@@ -35,6 +35,7 @@ insert into user(id, user_name, email)
 values (3000, 'Denowner', 'tjen.dekker@gmail.com');
 insert into user(id, user_name, email)
 values (4000, 'John Doe', 'tjen_dekker@hotmail.com');
+insert into user(id, email, user_name) VALUES (5000, 'Admin@admin.com', 'Admin');
 
 insert into game_genres
 values(1000, 0);

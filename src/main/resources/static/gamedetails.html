@@ -50,7 +50,9 @@
             <th>Genres</th>
         </tr>
     </table>
-    <h2>User Data</h2>
+    <div id="ifLoggedIn">
+
+    </div>
     <table class="table" id="userGameData">
 
     </table>
@@ -100,7 +102,10 @@
 
     });
 
-    if(userid !== null){
+    if(userid !== 'null'){
+
+        let $logged = $('#ifLoggedIn');
+        $logged.append('<h2>User Data</h2>');
         $.getJSON('/api/gamedata/all', function (gamedata) {
             let $tdata = $('#userGameData');
 

@@ -14,7 +14,8 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="index.html">Home</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -29,32 +30,32 @@
         </div>
     </nav>
     <h2>Popular now</h2>
-<div id="gallery">
-    <div class="gallery" id="game1">
+    <div id="gallery">
+        <div class="gallery" id="game1">
+
+        </div>
+
+        <div class="gallery" id="game2">
+
+        </div>
+
+        <div class="gallery" id="game3">
+
+        </div>
 
     </div>
 
-    <div class="gallery" id="game2">
+
+    <div id="page">
 
     </div>
-
-    <div class="gallery" id="game3">
-
-    </div>
-
-</div>
-
-
-<div id="page">
-
-</div>
 </div>
 <script>
 
     let $gameList = $('#gameList');
-    let $game1= $('#game1');
-    let $game2= $('#game2');
-    let $game3= $('#game3');
+    let $game1 = $('#game1');
+    let $game2 = $('#game2');
+    let $game3 = $('#game3');
 
     function getURLParameter(name) {
         return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
@@ -64,19 +65,19 @@
 
     $gameList.append('<a class="nav-link" href="game.html?userId=' + uid + '">Gamelist <span class="sr-only">(current)</span></a>');
 
-    $game1.append('<a href="gamedetails.html?gameId=1000&userId='+uid+'">\n' +
+    $game1.append('<a href="gamedetails.html?gameId=1000&userId=' + uid + '">\n' +
         '            <img src="images/nier.jpg" alt="Nier" width="300" height="200">\n' +
         '        </a>\n' +
-        '        <div class="desc"><a href="gamedetails.html?gameId=1000&userId='+uid+'">Nier Automata</a></div>');
+        '        <div class="desc"><a href="gamedetails.html?gameId=1000&userId=' + uid + '">Nier Automata</a></div>');
 
-    $game2.append('<a href="gamedetails.html?gameId=2000&userId='+uid+'">\n' +
+    $game2.append('<a href="gamedetails.html?gameId=2000&userId=' + uid + '">\n' +
         '            <img src="images/yakuza.png" alt="yakuza" width="300" height="200">\n' +
         '        </a>\n' +
-        '        <div class="desc"><a href="gamedetails.html?gameId=2000&userId='+uid+'">Yakuza 0</a></div>');
-    $game3.append('<a href="gamedetails.html?gameId=3000&userId='+uid+'">\n' +
+        '        <div class="desc"><a href="gamedetails.html?gameId=2000&userId=' + uid + '">Yakuza 0</a></div>');
+    $game3.append('<a href="gamedetails.html?gameId=3000&userId=' + uid + '">\n' +
         '            <img src="images/wolfenstein.jpg" alt="Wolfenstein" width="300" height="200">\n' +
         '        </a>\n' +
-        '        <div class="desc"><a href="gamedetails.html?gameId=3000&userId='+uid+'">Wolfenstein: The new Order</a></div>')
+        '        <div class="desc"><a href="gamedetails.html?gameId=3000&userId=' + uid + '">Wolfenstein: The new Order</a></div>')
 
 
 </script>

@@ -1,28 +1,27 @@
-img{
+img {
     max-width: 460px;
-    max-height:215px;
+    max-height: 215px;
 
-    padding:1em;
-    margin:2em;
+    padding: 1em;
+    margin: 2em;
     align-self: center;
 }
 
-table{
+table {
 
     padding: 1em;
     margin: 2em;
 }
 
-.container{
+.container {
     box-shadow: black;
-    background-color:white;
+    background-color: white;
 
 }
 
-body{
+body {
     background-color: beige;
 }
-
 
 div.gallery {
     margin: 2px;
@@ -39,7 +38,7 @@ div.gallery:hover {
 div.gallery img {
     max-width: 90%;
     height: auto;
-    align-self:center;
+    align-self: center;
 
 }
 

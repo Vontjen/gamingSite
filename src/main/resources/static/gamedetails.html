@@ -8,13 +8,14 @@
     <title>Gamedetails</title>
     <link rel="stylesheet" href="style.css"/>
 </head>
-<body >
+<body>
 
 <div class="container" id="page">
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="index.html">Home</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -32,7 +33,7 @@
     <table class="table table-striped">
 
         <tr id="name">
-            <th >Name</th>
+            <th>Name</th>
         </tr>
         <tr id="dev">
             <th>Developer</th>
@@ -61,8 +62,6 @@
 <script>
 
 
-
-
     function getURLParameter(name) {
         return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
     }
@@ -78,7 +77,7 @@
     console.log(gameid);
     console.log(userid);
 
-    $.getJSON('/api/game/'+gameid, function (game) {
+    $.getJSON('/api/game/' + gameid, function (game) {
         let $tname = $("#name");
         let $tdev = $("#dev");
         let $tpub = $("#pub");
@@ -87,7 +86,7 @@
         let $tplatforms = $("#platforms");
         let $tgenres = $("#genres");
 
-        $tpage.append($('<td>').append($("<img>").attr("src","data:image/png;base64," + game.picture)));
+        $tpage.append($('<td>').append($("<img>").attr("src", "data:image/png;base64," + game.picture)));
 
 
         $tname.append($('<td>').text(game.name));
@@ -98,40 +97,35 @@
         $tgenres.append($('<td>').text(game.genres));
 
 
-
-
     });
 
-    if(userid !== 'null'){
+    if (userid !== 'null') {
 
         let $logged = $('#ifLoggedIn');
         $logged.append('<h2>User Data</h2>');
         $.getJSON('/api/gamedata/all', function (gamedata) {
             let $tdata = $('#userGameData');
 
-            for(data of gamedata){
+            for (data of gamedata) {
 
                 console.log(data.user.id);
-                if(data.user.id == userid && data.game.id== gameid){
+                if (data.user.id == userid && data.game.id == gameid) {
 
                     console.log(data.propertiesList);
 
-                    for(properties of data.propertiesList){
+                    for (properties of data.propertiesList) {
                         $tdata.append($('<th>'))
                             .append($('<th>').text(properties.propertyName))
-                            .append($('<td>').text(properties.getPropertyValue));}
+                            .append($('<td>').text(properties.getPropertyValue));
+                    }
 
 
                 }
 
             }
 
-        })}
-
-
-
-
-
+        })
+    }
 
 
 </script>

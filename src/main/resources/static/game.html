@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <meta charset="UTF-8">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <link rel="stylesheet" href="style.css"/>
@@ -13,7 +14,8 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="index.html">Home</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -31,13 +33,13 @@
 
     <table class="table table-striped">
         <thead>
-        <tr>
+        <tr id="tr">
             <th>Id</th>
             <th>Name</th>
             <th>Developer</th>
             <th>Publisher</th>
             <th>Picture</th>
-            <th>Actions</th>
+
         </tr>
         </thead>
         <tbody id="game-list-data">
@@ -45,9 +47,9 @@
         </tbody>
     </table>
 
-<div id="admin">
+    <div id="admin">
 
-</div>
+    </div>
 </div>
 
 <script>
@@ -55,14 +57,17 @@
     function getURLParameter(name) {
         return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
     }
+
     let uid = getURLParameter('userId');
 
     let $gameList = $('#gameList');
     let $admin = $('#admin');
+    let $tr = $('#tr');
 
     $gameList.append('<a class="nav-link" href="game.html?userId=' + uid + '">Gamelist <span class="sr-only">(current)</span></a>');
 
-    if (uid === 'admin'){
+    if (uid === 'admin') {
+        $tr.append('<th>Actions</th>');
         $admin.append('<form id="game-create-form">\n' +
             '    <div class="form-group">\n' +
             '        <label for="name">name:</label>\n' +
@@ -93,17 +98,17 @@
     }
 
 
-    $('#game-create-form').submit(function(e) {
+    $('#game-create-form').submit(function (e) {
         e.preventDefault();
 
 
         let p = {
             name: $(this.name).val(),
             developer: ({
-                id:$(this.developer).val()
+                id: $(this.developer).val()
             }),
             publisher: ({
-                id:$(this.publisher).val()
+                id: $(this.publisher).val()
             })
         };
 
@@ -126,7 +131,7 @@
 
             for (let game of games) {
                 let $removeButton = $("<button>").addClass("btn").addClass("btn-danger").text("Remove");
-                $removeButton.click(function(e) {
+                $removeButton.click(function (e) {
                     $.ajax({
                         method: 'delete',
                         url: `/api/game/${game.id}`,
@@ -136,22 +141,20 @@
 
                 let $row = $('<tr>')
                     .append($('<td>').text(game.id))
-                    .append($('<td>').append($('<a href="gamedetails.html?gameId='+game.id+'&userId='+uid+'">').text(game.name)))
+                    .append($('<td>').append($('<a href="gamedetails.html?gameId=' + game.id + '&userId=' + uid + '">').text(game.name)))
                     .append($('<td>').text(game.developer.name))
                     .append($('<td>').text(game.publisher.name))
-                    .append($('<td>').append($("<img>").attr("src","data:image/png;base64," + game.picture)))
-                    if(uid === 'admin'){
-                    $row.append($('<td>').append($removeButton));}
+                    .append($('<td>').append($("<img>").attr("src", "data:image/png;base64," + game.picture)))
+                if (uid === 'admin') {
+
+                    $row.append($('<td>').append($removeButton));
+                }
                 $tbody.append($row);
 
 
-
             }
-    });
+        });
     }
-
-
-
 
 </script>
 

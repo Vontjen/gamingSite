@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="style.css"/>
     <title>Title</title>
 </head>
@@ -14,7 +13,7 @@
 <div class="container">
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="index.html">Home</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -29,6 +28,8 @@
             </ul>
         </div>
     </nav>
+
+
     <table class="table table-striped">
         <thead>
         <tr>
@@ -52,16 +53,24 @@
     </div>
     <div class="form-group">
         <label for="developer">developer</label>
-        <input class="form-control" id="developer" name="developer"/>
+        <select name="cars" id="developer">
+            <option value="1000">Platinum Games</option>
+            <option value="2000">Sega</option>
+            <option value="3000">MachineGames</option>
+            <option value="4000">Bethesda Software</option>
+            <option value="5000">Square Enix</option>
+        </select>
     </div>
     <div class="form-group">
         <label for="publisher">publisher</label>
-        <input class="form-control" id="publisher" name="publisher"/>
+        <select name="cars" id="publisher">
+            <option value="1000">Platinum Games</option>
+            <option value="2000">Sega</option>
+            <option value="3000">MachineGames</option>
+            <option value="4000">Bethesda Software</option>
+            <option value="5000">Square Enix</option>
+        </select>
     </div>
-    <!--<div class="form-group">
-        <label for="picture">picture</label>
-        <input class="form-control" id="picture" name="picture"/>
-    </div>-->
     <input type="submit" class="btn btn-primary" value="Create">
 </form>
 </div>
